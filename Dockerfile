@@ -1,4 +1,4 @@
-FROM php:7.0-fpm
+FROM php:7.1-fpm
 
 ADD ./site.ini /usr/local/etc/php/conf.d
 ADD ./site.pool.conf /usr/local/etc/php-fpm.d/
