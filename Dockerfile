@@ -8,7 +8,6 @@ RUN apt-get update && \
 
 RUN pecl install mongodb
 
-RUN docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql
 
 # Install extensions using the helper script provided by the base image
 RUN docker-php-ext-install \
@@ -16,6 +15,8 @@ RUN docker-php-ext-install \
     pgsql \
     pdo_pgsql \
     bcmath
+
+RUN docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql
 
 RUN docker-php-ext-enable opcache mongodb pgsql pdo_pgsql
 
