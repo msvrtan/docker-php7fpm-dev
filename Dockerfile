@@ -4,12 +4,17 @@ ADD ./site.ini /usr/local/etc/php/conf.d
 ADD ./site.pool.conf /usr/local/etc/php-fpm.d/
 
 RUN apt-get update && \
-    apt-get install -y libssl-dev 
+    apt-get install -y libssl-dev libpq-dev
 
 RUN pecl install mongodb
+
+RUN docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql
+
 # Install extensions using the helper script provided by the base image
 RUN docker-php-ext-install \
     pdo_mysql \
+    pgsql \
+    pdo_pgsql \
     bcmath
 
 RUN docker-php-ext-enable opcache mongodb
