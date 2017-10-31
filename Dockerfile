@@ -17,7 +17,7 @@ RUN docker-php-ext-install \
     pdo_pgsql \
     bcmath
 
-RUN docker-php-ext-enable opcache mongodb
+RUN docker-php-ext-enable opcache mongodb pgsql pdo_pgsql
 
 RUN usermod -u 1000 www-data
 
