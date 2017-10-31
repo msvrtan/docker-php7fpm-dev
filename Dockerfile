@@ -27,7 +27,7 @@ RUN { \
         echo 'memory_limit="256M"'; \
     } > /usr/local/etc/php/conf.d/zzz-overrides.ini
 
-RUN apt-get purge -y --auto-remove libssl-dev
+#RUN apt-get purge -y --auto-remove libssl-dev
 
 
 WORKDIR /var/www
